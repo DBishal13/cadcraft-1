@@ -38,6 +38,7 @@ mod qselect;
 mod selecttools;
 mod settings;
 mod spline_opts;
+mod surface;
 mod table;
 mod tolerance;
 mod trimextend;
@@ -175,6 +176,7 @@ pub fn command_specs() -> &'static [CommandSpec] {
         v.extend(file::specs());
         v.extend(file::alias_specs());
         v.extend(audit::specs());
+        v.extend(surface::specs());
         v.extend(edit::specs());
         v.extend(qselect::specs());
         v.extend(selecttools::specs());

@@ -67,6 +67,8 @@ pub use view::{ModelTile, ModelTiles, View};
 /// The editor session: open drawings, settings, the running command and the command log.
 pub struct Session {
     pub docs: Vec<DocState>,
+    /// Terrain surfaces loaded by LANDXMLIN / SURFACE.CREATE, by name (see `cmd::surface`).
+    pub surfaces: std::collections::BTreeMap<String, std::sync::Arc<cadcraft_geom::tin::Tin>>,
     pub active: usize,
     /// Monotonic count of changes to the open drawings and the active one. A screenshot queued
     /// across a switch is rejected even when a later switch returns to the same drawing.
@@ -150,6 +152,7 @@ impl Session {
     pub fn empty() -> Self {
         Session {
             docs: Vec::new(),
+            surfaces: std::collections::BTreeMap::new(),
             active: 0,
             doc_epoch: 0,
             settings: Settings::default(),

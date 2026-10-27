@@ -16,6 +16,7 @@ mod nurbs;
 pub mod region;
 mod spline;
 mod spline_fit;
+pub mod tin;
 mod vec;
 
 pub use bounds::Bounds2;
